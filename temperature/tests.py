@@ -2,7 +2,6 @@ from django.test import TestCase
 
 from django.test import TestCase, Client
 from django.urls import reverse
-
 class TestTemperatureConversion(TestCase):
   """
   This class contains tests that convert temperature from Celcius
