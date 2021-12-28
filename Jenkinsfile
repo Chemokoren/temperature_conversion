@@ -19,9 +19,7 @@ pipeline{
                 git config pull.ff only\
                 pip install -r requirements.txt --no-warn-script-location;\
                 python manage.py migrate;\
-                deactivate;\
-                systemctl restart nginx;\
-                systemctl restart gunicorn "'
+                deactivate "'
             }
         }
     }
@@ -30,3 +28,5 @@ pipeline{
 
 }
 // -o StrictHostKeyChecking=no 
+// sudo systemctl restart nginx;\
+// sudo systemctl restart gunicorn
