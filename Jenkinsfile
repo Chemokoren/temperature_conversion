@@ -13,7 +13,7 @@ pipeline{
         }
         stage("Deploy"){
             steps{
-                sh 'ssh -o StrictHostKeyChecking=no kibsoft@192.168.0.105 "source temp_env/bin/activate;\
+                sh 'ssh kibsoft@192.168.0.105 "source temp_env/bin/activate;\
                 cd temperature_converter;\
                 git pull origin master;\
                 pip install -r requirements.txt --no-warn-script-location;\
@@ -28,3 +28,4 @@ pipeline{
     
 
 }
+// -o StrictHostKeyChecking=no 
