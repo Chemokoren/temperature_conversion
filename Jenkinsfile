@@ -13,7 +13,14 @@ pipeline{
         }
         stage("Deploy"){
             steps{
-                echo 'Deploying'
+                echo 'ssh kibsoft@192.168.0.105 "source temp_env/bin/activate;\
+                cd temperature_converter;\
+                git pull origin master;\
+                pip install -r requirements.txt --no-warn-script-location;\
+                python manage.py migrate;\
+                deactivate;\
+                sudo systemctl restart nginx;\
+                sudo systemctl restart gunicorn "'
             }
         }
     }
