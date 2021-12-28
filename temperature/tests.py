@@ -29,4 +29,16 @@ class TestTemperatureConversion(TestCase):
     response = self.client.get(self.url, data)
     self.assertContains(response, 78.44)
 
+  def test_fahrenheit_to_celcius_conversion(self):
+    """ 
+    Tests conversion of farenheit to celcius.
+    
+    """
+    celsius_1 = 25.8
+    data = {
+      "temperature_in_celcius": celsius_1,
+    }
+    response = self.client.get(self.url, data)
+    self.assertContains(response, 78.44)
+
 
