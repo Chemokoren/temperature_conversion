@@ -46,12 +46,13 @@ pipeline{
                 sh 'python manage.py test'
             }
         }
-    }
-
-    stage("Deploy"){
+        stage("Deploy"){
             steps{
                 echo 'Deploying'
             }
         }
+    }
+
+    
 
 }
