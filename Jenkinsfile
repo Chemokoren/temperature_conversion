@@ -8,7 +8,7 @@ pipeline{
         }
         stage("Test"){
             steps{
-                sh 'python manage.py test'
+                sh 'python manage.py test temperature'
             }
         }
         stage("Deploy"){
