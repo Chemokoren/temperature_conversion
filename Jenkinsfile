@@ -17,11 +17,11 @@ pipeline{
                 virtualenv -p python3 myenv;\
                 source myenv/bin/activate;\
                 git clone git@github.com:Chemokoren/temperature_conversion.git;\
-                git pull origin main;\
                 cd temperature_conversion;\
+                git pull origin main;\
                 pip install -r requirements.txt --no-warn-script-location;\
                 python manage.py migrate;\
-                deactivate "'
+                python manage.py runserver 9000 "'
             }
         }
     }
@@ -34,3 +34,4 @@ pipeline{
 // sudo systemctl restart gunicorn
 // git config pull.ff only\
 // source temp_env/bin/activate;\
+// deactivate
