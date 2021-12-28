@@ -20,8 +20,8 @@ pipeline{
                 pip install -r requirements.txt --no-warn-script-location;\
                 python manage.py migrate;\
                 deactivate;\
-                sudo systemctl restart nginx;\
-                sudo systemctl restart gunicorn "'
+                systemctl restart nginx;\
+                systemctl restart gunicorn "'
             }
         }
     }
