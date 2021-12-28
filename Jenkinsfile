@@ -16,6 +16,7 @@ pipeline{
                 sh 'ssh kibsoft@192.168.0.105 "source temp_env/bin/activate;\
                 cd temperature_converter;\
                 git pull origin master;\
+                git config pull.ff only\
                 pip install -r requirements.txt --no-warn-script-location;\
                 python manage.py migrate;\
                 deactivate;\
