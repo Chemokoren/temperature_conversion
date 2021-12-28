@@ -18,7 +18,7 @@ pipeline{
                 source myenv/bin/activate;\
                 git clone git@github.com:Chemokoren/temperature_conversion.git;\
                 git pull origin main;\
-                cd temperature_converter;\
+                cd temperature_conversion;\
                 pip install -r requirements.txt --no-warn-script-location;\
                 python manage.py migrate;\
                 deactivate "'
