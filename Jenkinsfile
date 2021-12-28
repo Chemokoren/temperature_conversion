@@ -16,6 +16,7 @@ pipeline{
                 sh 'ssh kibsoft@192.168.0.105 "\
                 virtualenv -p python3 myenv;\
                 source myenv/bin/activate;\
+                git clone git@github.com:Chemokoren/temperature_conversion.git;\
                 git pull origin main;\
                 cd temperature_converter;\
                 pip install -r requirements.txt --no-warn-script-location;\
