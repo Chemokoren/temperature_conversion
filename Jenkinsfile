@@ -13,8 +13,10 @@ pipeline{
         }
         stage("Deploy"){
             steps{
-                sh 'ssh kibsoft@192.168.0.105 "source temp_env/bin/activate;\
-                git pull origin master;\
+                sh 'ssh kibsoft@192.168.0.105 "\
+                virtualenv -p python3 myenv;\
+                source myenv/bin/activate;\
+                git pull origin main;\
                 cd temperature_converter;\
                 pip install -r requirements.txt --no-warn-script-location;\
                 python manage.py migrate;\
@@ -30,3 +32,4 @@ pipeline{
 // sudo systemctl restart nginx;\
 // sudo systemctl restart gunicorn
 // git config pull.ff only\
+// source temp_env/bin/activate;\
