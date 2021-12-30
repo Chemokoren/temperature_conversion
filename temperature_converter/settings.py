@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 import environ
-import django_heroku
+# import django_heroku
 from pathlib import Path
 
 env = environ.Env(
@@ -20,21 +20,24 @@ env = environ.Env(
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG')
+# DEBUG=True
+DEBUG =env('DEBUG')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -64,7 +67,7 @@ ROOT_URLCONF = 'temperature_converter.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,11 +93,11 @@ DATABASES = {
     # }
             "default": {
             "ENGINE": 'django.db.backends.postgresql',
-            "NAME": os.getenv("POSTGRES_DB"),
-            "USER": os.getenv('POSTGRES_USER'),
-            "PASSWORD": os.getenv('POSTGRES_PASSWORD'),
-            "HOST": os.getenv('POSTGRES_HOST'),
-            "PORT": os.getenv('POSTGRES_PORT'),
+            "NAME": env("POSTGRES_DB"),
+            "USER": env('POSTGRES_USER'),
+            "PASSWORD": env('POSTGRES_PASSWORD'),
+            "HOST": env('POSTGRES_HOST'),
+            "PORT": env('POSTGRES_PORT'),
         }
 }
 
@@ -139,4 +142,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
