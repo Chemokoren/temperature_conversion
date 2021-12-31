@@ -1,1 +1,1 @@
-web:gunicorn temperature_converter.wsgi
+web: gunicorn temperature_converter.wsgi --log-file -

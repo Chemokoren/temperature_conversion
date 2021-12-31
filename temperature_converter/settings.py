@@ -30,14 +30,15 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+# SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY='django-insecure-w(j%%yy$msdk1)yx-e_mq67klolpe@lo@9qi*rwkh&bygae90='
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG=True
-DEBUG =env('DEBUG')
+DEBUG=False
+# DEBUG =env('DEBUG')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['tempconvertertest.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -87,18 +88,18 @@ WSGI_APPLICATION = 'temperature_converter.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-            "default": {
-            "ENGINE": 'django.db.backends.postgresql',
-            "NAME": env("POSTGRES_DB"),
-            "USER": env('POSTGRES_USER'),
-            "PASSWORD": env('POSTGRES_PASSWORD'),
-            "HOST": env('POSTGRES_HOST'),
-            "PORT": env('POSTGRES_PORT'),
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+        #     "default": {
+        #     "ENGINE": 'django.db.backends.postgresql',
+        #     "NAME": env("POSTGRES_DB"),
+        #     "USER": env('POSTGRES_USER'),
+        #     "PASSWORD": env('POSTGRES_PASSWORD'),
+        #     "HOST": env('POSTGRES_HOST'),
+        #     "PORT": env('POSTGRES_PORT'),
+        # }
 }
 
 # Password validation
